@@ -20,10 +20,11 @@
 @Library('vyos-build@sagitta')_
 
 def pkgList = [
-    ['name': 'ddclient-debian',
+	// broken: the debian/3.10.0-3 was deleted for some reason, we need to use workaround
+    /*['name': 'ddclient-debian',
      'scmCommit': 'debian/3.10.0-3',
      'scmUrl': 'https://salsa.debian.org/debian/ddclient',
-     'buildCmd': '/bin/true'],
+     'buildCmd': '/bin/true'],*/
     ['name': 'ddclient-github',
      'scmCommit': 'v3.11.2',
      'scmUrl': 'https://github.com/ddclient/ddclient',

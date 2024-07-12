@@ -5,6 +5,11 @@ set -e
 SRC_DEBIAN=ddclient-debian
 SRC_GITHUB=ddclient-github
 
+# workaround for deleted git revision
+wget https://salsa.debian.org/debian/ddclient/-/archive/6d4a353c8e36972578e5506a801be7ff8c1f59ea/ddclient-6d4a353c8e36972578e5506a801be7ff8c1f59ea.tar.gz -O ddclient-debian.tar.gz
+tar -xf ddclient-debian.tar.gz
+mv ddclient-6d4a353c8e36972578e5506a801be7ff8c1f59ea ddclient-debian
+
 if [ ! -d ${SRC_DEBIAN} ]; then
     echo "${SRC_DEBIAN} directory does not exists, please 'git clone'"
     exit 1
