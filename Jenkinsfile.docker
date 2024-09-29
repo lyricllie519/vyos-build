@@ -53,7 +53,7 @@ pipeline {
                     steps {
                         script {
                             DOCKER_IMAGE_AMD64 = "vyos/vyos-build:" + env.GIT_BRANCH_NAME
-                            sh "docker build --no-cache --tag ${DOCKER_IMAGE_AMD64} docker"
+                            sh "docker build --no-cache --network=host --tag ${DOCKER_IMAGE_AMD64} docker"
                             if (! isCustomBuild()) {
                                 withDockerRegistry([credentialsId: "DockerHub"]) {
                                     sh "docker push ${DOCKER_IMAGE_AMD64}"
