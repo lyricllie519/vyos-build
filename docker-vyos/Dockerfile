@@ -25,7 +25,7 @@ LABEL authors="VyOS Maintainers <maintainers@vyos.io>"
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN /bin/echo -e 'APT::Install-Recommends "0";\nAPT::Install-Suggests "0";' > /etc/apt/apt.conf.d/01norecommends
-RUN sudo ip link set dev eth0 mtu 1400
+
 # Base packaged needed to build packages and their package dependencies
 RUN apt-get update && apt-get install -y \
       ca-certificates \
