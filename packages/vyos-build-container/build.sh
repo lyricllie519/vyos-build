@@ -7,7 +7,7 @@ echo "Inspecting current image of ${BRANCH_NAME}..."
 previousImageId=$(docker images --filter=reference="vyos/vyos-build:${BRANCH_NAME}" --format "{{.ID}}")
 
 echo "Building docker build container for branch ${BRANCH_NAME}..."
-docker build --no-cache -t "vyos/vyos-build:${BRANCH_NAME}" .
+docker build --no-cache --network=host -t "vyos/vyos-build:${BRANCH_NAME}" .
 
 echo "Pushing ${BRANCH_NAME} image to registry ${CUSTOM_DOCKER_REPO}..."
 docker tag "vyos/vyos-build:${BRANCH_NAME}" "${CUSTOM_DOCKER_REPO}/vyos/vyos-build:${BRANCH_NAME}"
